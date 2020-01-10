@@ -1,5 +1,10 @@
 class Validator(object):
-    pass
+    def check(self, input):
+        if len(input) < 8:
+            return False
+        elif len(input) > 12:
+            return False
+        return True
 
 
 class Login():
@@ -16,4 +21,4 @@ class Login():
 
     @property
     def is_valid(self):
-        return True
+        return Validator().check(self.__pwd)
