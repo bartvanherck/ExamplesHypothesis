@@ -1,10 +1,21 @@
+import string
+
+
 class Validator(object):
     def check(self, input):
         if len(input) < 8:
             return False
         elif len(input) > 12:
             return False
-        return True
+        return not self.has_invalid_chars(input)
+
+    def has_invalid_chars(self, input):
+        invalid = set(string.punctuation.replace("_",""))
+        print(invalid)
+        print([char in invalid for char in input])
+        if any(char in invalid for char in input):
+            return True
+        return False
 
 
 class Login():
