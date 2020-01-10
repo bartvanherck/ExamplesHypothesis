@@ -30,3 +30,8 @@ def test_check_max_plus_one():
     login = Login()
     login.password = "1234567890123"
     assert login.is_valid == False
+
+def test_weird_chars():
+    login = Login()
+    login.password = "123456-89012"
+    assert login.is_valid == False
