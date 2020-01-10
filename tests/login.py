@@ -11,8 +11,6 @@ class Validator(object):
 
     def has_invalid_chars(self, input):
         invalid = set(string.punctuation.replace("_",""))
-        print(invalid)
-        print([char in invalid for char in input])
         if any(char in invalid for char in input):
             return True
         return False
