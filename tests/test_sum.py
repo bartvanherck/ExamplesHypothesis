@@ -1,5 +1,5 @@
 import pytest
-from hypothesis import given
+from hypothesis import given, settings, Verbosity
 import hypothesis.strategies as st
 
 
@@ -20,7 +20,7 @@ def sum(num1, num2):
 def test_sum(num1, num2, expected):
     assert sum(num1, num2) == expected
 
-
+@settings(verbosity=Verbosity.verbose)
 @given(st.integers(), st.integers())
 def test_sum_1(num1, num2):
     assert sum(num1, num2) == num1 + num2
